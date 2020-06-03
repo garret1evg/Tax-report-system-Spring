@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Legal entities</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/get-clients.css}">
+</head>
+<body>
+<th:block th:insert="fragments/language :: language"/>
+<h2 th:text="#{my.legals}">My Legals</h2>
+<table border="1">
+    <thead>
+    <tr>
+        <th th:text="#{legals.id}"></th>
+        <th th:text="#{legals.email}"></th>
+        <th th:text="#{legals.name}"></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="l, iStat : ${legals}"
+        th:style="${iStat.odd}? 'font-weight: bold;'"
+        th:alt-title="${iStat.even}? 'even' : 'odd'">
+        <td th:text="${l.id}"></td>
+        <td th:text="${l.user.email}"></td>
+        <td th:text="${l.legalEntity.toString()}"></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

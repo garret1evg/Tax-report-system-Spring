@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Report</title>
+</head>
+<body>
+<th:block th:insert="fragments/language :: language"/>
+<div class="container">
+    <section id="content">
+        <form th:action="@{/client/create-new-report}" th:object="${report}" th:method="post">
+            <h1 th:text="#{report}">Report</h1>
+            <div>
+                <input th:label="#{write.comment}" type="text" placeholder="Comment" required="" id="comment" th:field="*{comment}"/>
+            </div>
+            <div>
+                <input type="submit" th:value="#{add.new.report}" />
+            </div>
+        </form><!-- form -->
+    </section>
+</div>
+</body>
+</html>
